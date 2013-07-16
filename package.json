@@ -1,0 +1,19 @@
+{
+  "name": "signature-generator",
+  "version": "0.0.0",
+  "description": "Copy and paste straight from the browser!",
+  "main": "compile.coffee",
+  "dependencies": {
+    "async": "~0.2.9",
+    "jade": "~0.33.0",
+    "uglify-js": "~2.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Creative Licence Digital",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}

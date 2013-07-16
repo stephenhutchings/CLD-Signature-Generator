@@ -1,0 +1,54 @@
+!!! 5
+html
+  body
+    div(style="color: #444; font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif; max-width: 560px; background: #fff; -webkit-text-size-adjust: none;")
+      table(style="border-top: 2px solid #000; padding: 4px 0; width: 560px; font-size: 11px; font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;")
+        tr
+          td(style="width: 156px;")
+            a(href="http://www.creativelicencedigital.com/")
+              img(src="http://www.creativelicencedigital.com/images/signature/cld_150x90.png", alt="Creative Licence Digital", style="width: 150px; height: 90px; border: 0;")
+          td
+            div(style="color: #000; font-size: 14px; margin: 2px 0;")
+              | #{locals.firstname} #{locals.lastname}
+
+            if locals.role
+              div(style="color: #000; font-size: 12px; margin: 2px 0;")
+                = locals.role
+
+            div(style="color: #444; font-size: 11px; margin: 2px 0;")
+              | Creative Licence Digital
+
+            div(style="color: #444; font-size: 11px; margin: 2px 0;")
+              | Level 1, Park Lane Arcade, 13 The Corso, Manly NSW 2095
+
+            div(style="color: #444; font-size: 11px; margin: 2px 0;")
+              strong work 
+              | (02) 9977 2228 
+              if locals.mobile
+                strong mobile 
+                = locals.mobile
+
+            div(style="font-size: 11px; margin: 2px 0;")
+
+              a(style="margin-right: 2px; text-decoration: none;",
+                href="http://twitter.com/Cre8iveLicence")
+
+                img(src="http://www.creativelicencedigital.com/images/signature/twitter.png",
+                    alt="Cre8ive Licence",
+                    style="vertical-align: middle; border: 0; width: 15px; height: 15px")
+
+              if locals.email
+                a(style="color: #333;", href="mailto:#{locals.email}")
+                  = locals.email
+                |  | 
+
+              a(style="color: #333;", href="http://www.creativelicencedigital.com/") creativelicencedigital.com
+
+        tr
+          td(colspan=2)
+            #awards
+
+        tr
+          td(colspan=2)
+            p(style="color: #999; font-size: 9px;")
+              | This message may contain confidential or legally privileged information. If you think it was sent to you by mistake, please delete all copies and advise the sender. Please consider the environment before printing this email. Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.
