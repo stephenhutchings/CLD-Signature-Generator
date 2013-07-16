@@ -1,7 +1,8 @@
 ## Signature Generator
 
+Editing involves...
+
 ```
 npm install
-
-coffee
+coffee compile.coffee
 ```
