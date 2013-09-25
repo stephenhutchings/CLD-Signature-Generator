@@ -12,7 +12,5 @@ You can set this up by saving the following to `.git/hooks/post-commit`.
 
 ```
 #!/bin/sh
-git checkout gh-pages
-git rebase master
-git checkout master
+git push -f origin master:gh-pages
 ```
