@@ -10,12 +10,11 @@ compile = (done, templatesDir) ->
     # get all files in templates directory
     fs.readdir templatesDir, (err, files) ->
         # keep only ".jade" files
-        jadeFiles = files.filter (file) -> 
+        jadeFiles = files.filter (file) ->
             file.substr(-5) == ".jade"
 
         # function to compile jade templates (appending to js source)
         compileTmpl = (file, doneCompile) ->
-            # "test.jade" becomes "test"
             key = file.substr(0, file.indexOf("."))
             filePath = templatesDir + file
             fs.readFile filePath, (err, src, file) ->
@@ -34,12 +33,13 @@ compile((js, err) ->
   fs.writeFile "./lib/template.js", js, ->
     files = [
       './lib/contacts.js'
+      './lib/awards.js'
       './lib/runtime.js'
       './lib/zepto.min.js'
       './lib/template.js'
       './lib/script.js'
     ]
 
-    min = UglifyJS.minify(files)
+    min = UglifyJS.minify(files, {compress: false})
     fs.writeFile "./media/script.min.js", min.code
 , "./views/")

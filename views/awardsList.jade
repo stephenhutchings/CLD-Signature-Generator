@@ -1,99 +1,20 @@
-div(style="color:rgb(102,102,102);border-top: 2px solid #000;margin:2px 0px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif")
-  table(width='100%', style='margin: 2px 0px;')
-    tbody
+- var font = "font-family:\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-size: 11px;";
+- var cellStyle1 = font + "background-color: #f3f3f3; padding: 4px 6px;";
+- var cellStyle2 = font + "background-color: #f8f8f8; padding: 4px 6px;";
+- var linkStyle = "text-decoration: none; color: #666;";
+- var linkStyleGrey = "color: #999;";
+
+table(cellspacing=0, cellpadding=0, width="100%",
+      style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;")
+  tbody
+    each award, i in awards
       tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='http://creativelicencedigital.com/projects/scrambled/', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2013 Winner
-            strong  Scrambled
-            |  | Games |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='http://www.studybreakapp.com/', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2012 Winner
-            strong  Study Break
-            |  | Discover with Friends |
-            strong  App Store Best of | iPhone®
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='http://www.shoppernova.com.au/', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2012 Finalist
-            strong  ShopperNova
-            |  | Retail &amp; Shopping |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='http://www.creativelicencedigital.com/brookfield-multiplex.asp', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2012 Finalist
-            strong  Brookfield Multiplex
-            |  | Sales Force |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='http://www.fieldintouch.com/', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2012 Finalist
-            strong  Field InTouch
-            |  | In Field Services |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='http://www.shoppernova.com.au/', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2011 Finalist
-            strong  Quickerfeet
-            |  | Innovation Award |
-            strong  AIMIA Awards 2011
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='https://itunes.apple.com/au/app/woven-image/id407919710?mt=8', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2011 Winner
-            strong  Woven Image
-            |  | Best B2B | In Field Services |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='https://itunes.apple.com/au/app/whiskas-earster-cats/id431829440?mt=8', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2011 Winner
-            strong  Whiskas Earster Cats
-            |  | Best Use of Advertising |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='https://itunes.apple.com/au/app/woven-image/id407919710?mt=8', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2011 Winner
-            strong  Woven Image
-            |  | Best App By Platform | iOS |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='https://itunes.apple.com/au/app/medicines-list/id440111671?mt=8', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2011 Winner
-            strong  NPS Medicine Wise
-            |  | Best Health App |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='http://www.stgeorge.com.au/', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2011 Finalist
-            strong  St George Mobile Banking
-            |  | Best Financial App |
-            strong  Australian Mobile Awards
-      tr
-        td(style='font-size: 12px; font-family: arial; background-color: #eee; padding-left: 10px;')
-          a(href='https://itunes.apple.com/au/app/amnesty-burma/id397911134?mt=8', style='text-decoration: none; color: #777;', target='_blank')
-            strong
-              span(style='color: #000;') 2010 Finalist
-            strong  Amnesty International
-            |  | Best Not for Profit App |
-            strong  AIMIA Awards 2010
+        td(style=i % 2 == 0 ? cellStyle1 : cellStyle2)
+          a(href=award.href, style=linkStyle, target="_blank")
+            strong #{award.year} #{award.position}
+            | &nbsp;
+            = award.app
+            | &nbsp;
+            span(style=linkStyleGrey)= award.award
+            | &nbsp;
+            strong(style=linkStyleGrey)= award.competition
