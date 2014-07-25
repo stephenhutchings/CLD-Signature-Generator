@@ -1,5 +1,5 @@
 - var font = "font-family:\"Helvetica Neue\",Helvetica,Arial,sans-serif"
-- var bodyCopy = "color: #000; font-size: 11px; margin: 0 0 2px;";
+- var bodyCopy = "color: #000; font-size: 11px; margin: 0 0 2px; font-style: normal;";
 - var bodyCopyH1 = "color: #000; font-size: 15px; margin: 0 0 2px;";
 - var bodyCopyH2 = "color: #000; font-size: 13px; margin: 0 0 2px;";
 - var linkStyle = "text-decoration: none; color: #333;";
@@ -42,17 +42,23 @@ html
                 tr
                   td(width="160px")
                     div(style="font-weight: bold; color: #000; font-size: 12px; margin: 8px 0 2px;") Sydney Office
-                    div(style=bodyCopy) Level 1, Park Lane Arcade
-                    div(style=bodyCopy) 13 The Corso
-                    div(style=bodyCopy) Manly NSW 2095
-                    div(style=bodyCopy): telephone (02) 9977 2228
+                    address(style=bodyCopy)
+                      | Level 1, Park Lane Arcade
+                      br
+                      | 13 The Corso
+                      br
+                      | Manly NSW 2095
+                    telephone(style=bodyCopy) (02) 9977 2228
 
                   td
                     div(style="font-weight: bold; color: #000; font-size: 12px; margin: 8px 0 2px;") New York Office
-                    div(style=bodyCopy) Level 11
-                    div(style=bodyCopy) 41 E 11th Street
-                    div(style=bodyCopy) New York, NY 10003
-                    div(style=bodyCopy): telephone 212 331 1100
+                    address(style=bodyCopy)
+                      | Level 11
+                      br
+                      | 41 E 11th Street
+                      br
+                      | New York, NY 10003
+                    telephone(style=bodyCopy) 212 331 1100
 
 
           tr
