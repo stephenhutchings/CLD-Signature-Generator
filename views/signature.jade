@@ -7,8 +7,8 @@
 !!! 5
 html
   body
-    div(style="color: #444; #{font}; max-width: 450px; background: #fff; -webkit-text-size-adjust: none;")
-      table(cellspacing=0, cellpadding=0, style="padding: 4px 0; width: 450px; font-size: 11px; #{font}")
+    div(style="color: #444; #{font}; width: 450px; background: #fff; -webkit-text-size-adjust: none;")
+      table(cellspacing=0, cellpadding=0, width=450, style="padding: 4px 0; font-size: 11px; #{font}")
         tbody
           tr
             td(style="width: 160px;")
@@ -38,25 +38,21 @@ html
 
           tr
             td(colspan=2)
-              table(cellspacing=0, cellpadding=0, width="100%", style="margin-top: 8px; border-top: 1px solid #ccc;")
+              table(cellspacing=0, cellpadding=0, width="100%", style="margin-top: 8px; border-top: 1px solid #ccc;-webkit-text-size-adjust: none;")
                 tr
                   td(width="160px")
                     div(style="font-weight: bold; color: #000; font-size: 12px; margin: 8px 0 2px;") Sydney Office
-                    address(style=bodyCopy)
+                    address(style=bodyCopy + "white-space: pre;")
                       | Level 1, Park Lane Arcade
-                      br
                       | 13 The Corso
-                      br
                       | Manly NSW 2095
                     telephone(style=bodyCopy) (02) 9977 2228
 
                   td
                     div(style="font-weight: bold; color: #000; font-size: 12px; margin: 8px 0 2px;") New York Office
-                    address(style=bodyCopy)
+                    address(style=bodyCopy + "white-space: pre;")
                       | Level 11
-                      br
                       | 41 E 11th Street
-                      br
                       | New York, NY 10003
                     telephone(style=bodyCopy) 212 331 1100
 
