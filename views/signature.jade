@@ -1,36 +1,46 @@
-- var font = "font-family:\"Helvetica Neue\",Helvetica,Arial,sans-serif"
-- var bodyCopy = "color: #000; font-size: 11px; margin: 0 0 2px; font-style: normal;";
-- var bodyCopyH1 = "color: #000; font-size: 15px; margin: 0 0 2px;";
-- var bodyCopyH2 = "color: #000; font-size: 13px; margin: 0 0 2px;";
-- var linkStyle = "text-decoration: none; color: #333;";
-
-!!! 5
+doctype html
 html
+  - var font = "font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;"
+  - var bodyCopy = "color: #000; font-size: 11px; margin: 0 0 2px; font-style: normal;";
+  - var bodyCopyH1 = "color: #000; font-size: 15px; margin: 0 0 2px;";
+  - var bodyCopyH2 = "color: #000; font-size: 13px; margin: 0 0 2px;";
+  - var linkStyle = "text-decoration: none; color: #333;";
+
   body
-    div(style="color: #444; #{font}; width: 450px; background: #fff; -webkit-text-size-adjust: none;")
-      table(cellspacing=0, cellpadding=0, width=450, style="padding: 4px 0; font-size: 11px; #{font}")
+    div(style=font + "color: #444; width: 450px; background: #fff;")
+      style(type="text/css").
+        div, p, a, li, td { 
+          -webkit-text-size-adjust: none;
+          line-height: 1.1em;
+        }
+        a[href^=tel]{
+            color: inherit;
+            text-decoration: none;
+        }
+
+      table(cellspacing=0 cellpadding=0 width=450 style="padding: 4px 0; font-size: 11px;")
         tbody
           tr
             td(style="width: 160px;")
               a(href="http://www.creativelicencedigital.com/")
-                img(src="http://www.creativelicencedigital.com/images/signature/cld_150x90.png", alt="Creative Licence Digital", style="width: 150px; height: 90px; border: 0;")
+                img(src="http://www.creativelicencedigital.com/images/signature/cld_150x90.png" alt="Creative Licence Digital" style="width: 150px; height: 90px; border: 0;")
             td
               div(style=bodyCopyH1)
-                | #{locals.firstname} #{locals.lastname}
+                | #{contact.firstname} #{contact.lastname}
 
-              if locals.role
-                div(style=bodyCopyH2)= locals.role
+              if contact.role
+                div(style=bodyCopyH2)= contact.role
 
-              if locals.email
+              if contact.email
                 div(style=bodyCopy)
-                  a(style=linkStyle, href="mailto:#{locals.email}")= locals.email
+                  a(style=linkStyle, href="mailto:#{contact.email}")= contact.email
 
               div(style=bodyCopy)
                 a(style=linkStyle, href="http://www.creativelicencedigital.com/") creativelicencedigital.com
 
-              if locals.mobile
+              if contact.mobile
                 div(style=bodyCopy)
-                  telephone(style=linkStyle)= locals.mobile
+                  a(href="tel:#{contact.mobile}" style=linkStyle)= contact.mobile
 
               div(style=bodyCopy)
                 a(style=linkStyle,
@@ -38,27 +48,31 @@ html
 
           tr
             td(colspan=2)
-              table(cellspacing=0, cellpadding=0, width="100%", style="margin-top: 8px; border-top: 1px solid #ccc;-webkit-text-size-adjust: none;")
+              table(cellspacing=0 cellpadding=0 width="100%" style="margin-top: 8px; border-top: 1px solid #ccc;")
                 tr
                   td(width="160px")
                     div(style="font-weight: bold; color: #000; font-size: 12px; margin: 8px 0 2px;") Sydney Office
-                    address(style=bodyCopy + "white-space: pre;")
+                    div(style=bodyCopy): a(href="http://maps.google.com/?q=Level 1, Park Lane Arcade, 13 The Corso Manly NSW 2095" style=linkStyle)
                       | Level 1, Park Lane Arcade
+                      br
                       | 13 The Corso
+                      br
                       | Manly NSW 2095
-                    telephone(style=bodyCopy) (02) 9977 2228
+                    a(href="tel:+61299772228" style=bodyCopy + linkStyle) (02) 9977 2228
 
                   td
                     div(style="font-weight: bold; color: #000; font-size: 12px; margin: 8px 0 2px;") New York Office
-                    address(style=bodyCopy + "white-space: pre;")
+                    div(style=bodyCopy): a(href="http://maps.google.com/?q=Level 11, 41 E 11th Street New York, NY 10003" style=linkStyle)
                       | Level 11
+                      br
                       | 41 E 11th Street
+                      br
                       | New York, NY 10003
-                    telephone(style=bodyCopy) 212 331 1100
+                    a(href="tel:+12123311100" style=bodyCopy + linkStyle) 212 331 1100
 
 
           tr
-            td#awards(colspan=2, style="padding: 6px 0;")
+            td#awards(colspan=2 style="padding: 6px 0;")!= locals.awards
 
           tr
             td(colspan=2)

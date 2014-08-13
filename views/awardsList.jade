@@ -1,20 +1,18 @@
-- var font = "font-family:\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-size: 11px;";
-- var cellStyle1 = font + "background-color: #f3f3f3; padding: 4px 6px;";
-- var cellStyle2 = font + "background-color: #f8f8f8; padding: 4px 6px;";
-- var linkStyle = "text-decoration: none; color: #666;";
-- var linkStyleGrey = "color: #999;";
+table(cellspacing=0 cellpadding=5 width="100%" style="font-size:11px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;")
+  - var cellStyle1 = "background-color: #f3f3f3;";
+  - var cellStyle2 = "background-color: #f8f8f8;";
+  - var linkStyle = "text-decoration: none; color: #666;";
+  - var spanStyle = "color: #999;";
 
-table(cellspacing=0, cellpadding=0, width="100%",
-      style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;-webkit-text-size-adjust: none;")
   tbody
     each award, i in awards
       tr
         td(style=i % 2 == 0 ? cellStyle1 : cellStyle2)
-          a(href=award.href, style=linkStyle, target="_blank")
+          a(href=award.href style=linkStyle target="_blank")
             strong #{award.year} #{award.position}
             | &nbsp;
             = award.app
             | &nbsp;
-            span(style=linkStyleGrey)= award.award
+            span(style=spanStyle)= award.award
             | &nbsp;
-            strong(style=linkStyleGrey)= award.competition
+            strong(style=spanStyle)= award.competition

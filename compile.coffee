@@ -5,28 +5,29 @@ async = require "async"
 UglifyJS = require("uglify-js")
 
 compile = (done, templatesDir) ->
-    js = "var Templates = {}; \n\n"
+  js = "var Templates = {}; \n\n"
 
-    # get all files in templates directory
-    fs.readdir templatesDir, (err, files) ->
-        # keep only ".jade" files
-        jadeFiles = files.filter (file) ->
-            file.substr(-5) == ".jade"
+  # get all files in templates directory
+  fs.readdir templatesDir, (err, files) ->
+    # keep only ".jade" files
+    jadeFiles = files.filter (file) ->
+      file.substr(-5) == ".jade"
 
-        # function to compile jade templates (appending to js source)
-        compileTmpl = (file, doneCompile) ->
-            key = file.substr(0, file.indexOf("."))
-            filePath = templatesDir + file
-            fs.readFile filePath, (err, src, file) ->
-                unless err
-                  # store js function source into Templates.{key}
-                  js += "Templates[\"#{key}\"] = \n" +
-                        "  #{jade.compile(src, { debug: false, client: true})};\n\n"
-                doneCompile(err)
+    # function to compile jade templates (appending to js source)
+    compileTmpl = (file, doneCompile) ->
+      key = file.substr(0, file.indexOf("."))
+      filePath = templatesDir + file
+      fs.readFile filePath, (err, src, file) ->
+        unless err
+          # store js function source into Templates.{key}
+          js += "Templates[\"#{key}\"] = \n" +
+                "  #{jade.compile(src, { debug: false, pretty: true, client: true})};\n\n"
 
-        # foreach jadeFile, compile template, then write templates.js file
-        async.forEach jadeFiles, compileTmpl, (err) ->
-            done(js, err)
+        doneCompile(err)
+
+    # foreach jadeFile, compile template, then write templates.js file
+    async.forEach jadeFiles, compileTmpl, (err) ->
+      done(js, err)
 
 
 compile((js, err) ->
